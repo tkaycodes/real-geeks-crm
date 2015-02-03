@@ -7,12 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <%= render 'shared/top_nav' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+  <div id="container"  class="row">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
