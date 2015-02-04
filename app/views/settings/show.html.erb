@@ -1,0 +1,43 @@
+<div class="large-6 large-offset-3 columns">
+  <h1>Edit Your Settings</h1>
+  <%= form_for(@agent, url: settings_path(method: :patch)) do |f| %>
+    <fieldset>
+      <legend>Contact Info</legend>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Name
+          <%= f.text_field :name, required: true %>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <label>Email
+          <%= f.email_field :email, required: true %>
+        </label>
+      </div>
+      <div class="large-6 columns">
+        <label>Phone
+          <%= f.phone_field :phone %>
+        </label>
+      </div>
+    </div>
+    </fieldset>
+    <fieldset>
+      <legend>Change Your Password</legend>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.password_field :password, placeholder: "New Password" %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.password_field :password_confirmation, placeholder: "Confirm New Password" %>
+      </div>
+    </div>
+    </fieldset>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.submit "Save Changes", class: "button success" %>
+      </div>
+    </div>
+  <% end %>
+</div>

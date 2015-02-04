@@ -10,7 +10,6 @@
 <section class="top-bar-section">
 <!-- Right Nav Section -->
 <ul class="right">
-  <li><a href="#">Signed in as: <%= current_agent.name %></a></li>
   <li><%= link_to "Sign Out", destroy_agent_session_path, method: :delete %></li>
   <li class="has-dropdown">
   <a href="#">Real Geeks Tools</a>
@@ -26,6 +25,7 @@
 <ul class="left">
   <li class="active"><%= link_to "Leads", "#" %></li>
   <li><%= link_to "Agents", "#" %></li>
+  <li><%= link_to "Settings", settings_path %></a></li>
 </ul>
 </section>
 </nav>
