@@ -10,12 +10,13 @@
 <section class="top-bar-section">
 <!-- Right Nav Section -->
 <ul class="right">
-  <li><a href="#">Settings</a></li>
+  <li><a href="#">Signed in as: <%= current_agent.name %></a></li>
+  <li><%= link_to "Sign Out", destroy_agent_session_path, method: :delete %></li>
   <li class="has-dropdown">
-  <a href="#">Jump To...</a>
+  <a href="#">Real Geeks Tools</a>
   <ul class="dropdown">
-    <li><a href="#">Accounts</a></li>
     <li class="active"><a href="#">Real Geeks CRM</a></li>
+    <li><a href="#">Accounts</a></li>
     <li><a href="#">Website Backend/CMS</a></li>
   </ul>
   </li>
