@@ -6,4 +6,8 @@ class Agent < ActiveRecord::Base
          #:recoverable, :rememberable, :trackable
   has_many :leads
   validates_inclusion_of(:role, in: ROLES)
+
+  def to_s
+    name
+  end
 end

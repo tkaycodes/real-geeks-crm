@@ -21,6 +21,7 @@ Lead.destroy_all
     email: Faker::Internet.email,
     phone: Faker::PhoneNumber.phone_number,
     address: Faker::Address.street_address,
+    last_search: "$#{(1..9).to_a.sample}00,000+, #{Faker::Address.city}",
     start_date: (2..25).to_a.sample.days.ago,
     active_at: (2..25).to_a.sample.hours.ago,
     agent_id: Agent.ids.sample
