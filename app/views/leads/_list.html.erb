@@ -9,7 +9,7 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
-        <td><%= lead.name %></td>
+        <td><%= link_to lead.name, lead_path(lead) %></td>
         <td><%= lead.start_date.to_s(:simple_with_year) %></td>
         <td>
           <strong>Count:</strong> <%= lead.search_count %><br />
