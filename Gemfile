@@ -36,6 +36,7 @@ gem 'foundation-rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
