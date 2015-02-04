@@ -4,5 +4,6 @@ class Agent < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :validatable#, :registerable,
          #:recoverable, :rememberable, :trackable
+  has_many :leads
   validates_inclusion_of(:role, in: ROLES)
 end
