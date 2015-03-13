@@ -22,14 +22,13 @@
         <td><%= lead.active_at.to_s(:simple_with_year) %></td>
         <td><%= lead.agent%></td>
         <td><%= lead.agent.role%></td>
-        <td><select>
-          <%agents.each do  |x|%>
-          <option><%=x%></option>
-          <%end%>
-
-
-
-      </select>
+        <td>
+          <select><%agents.each do  |x|%>
+              <option><%=x%></option>
+              <%#=x.submit  %>
+              <%end%>
+                <%=submit_tag "Save", id:"submit", data: { confirm: "Are you sure?", method: :patch }%>
+          </select>
         </td>
       </tr>
     <% end %>
