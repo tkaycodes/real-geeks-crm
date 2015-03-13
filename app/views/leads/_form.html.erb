@@ -28,8 +28,11 @@
       </div>
     </div>
   </fieldset>
-  <fieldset>
-    <legend>Assigned To</legend>
+
+<!-- this if statement will ensure only admin's get access to this section -->
+<%if current_agent.role == "Admin"%>
+  <fieldset> 
+  <legend>Assigned To</legend>
     <div class="row">
       <div class="large-12 columns">
         <label>Agent
@@ -37,7 +40,12 @@
         </label>
       </div>
     </div>
-  </fieldset>
+   </fieldset> 
+<%end%>
+
+
+
+
   <div class="row">
     <div class="large-6 columns">
       <%= f.submit "Save Changes", class: "button success" %>

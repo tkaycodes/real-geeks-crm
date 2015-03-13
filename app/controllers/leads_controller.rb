@@ -1,6 +1,7 @@
 class LeadsController < ApplicationController
   before_filter :get_lead, only: [:show, :update]
   def index
+    agents =  Agent.order(:name).all.collect {|a| a.name}
     if  current_agent.role == "Admin"
       @leads = Lead.order "created_at DESC"
     else
