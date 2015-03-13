@@ -18,3 +18,12 @@
 
 #container {
   margin-bottom: 40px;
+}
+
+#signedin{
+  /*float:right;*/
+  margin-top: 0px;
+  /*margin-left: 10px;*/
+  border:1px solid black;
+  text-align: center;
+}

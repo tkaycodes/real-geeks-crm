@@ -6,6 +6,7 @@ class LeadsController < ApplicationController
     else
       @leads = current_agent.leads.order "created_at DESC"
     end
+    @agents =  Agent.order(:name).all.collect {|a| a.name}
   end
 
   def show
@@ -23,10 +24,12 @@ class LeadsController < ApplicationController
   private
 
   def lead_params
-    params[:lead].permit(:name, :email, :phone, :address, :agent_id)
+    params[:lead].permit(:name, :email, :phone, :address, :agent_id, :activity_log)
   end
 
   def get_lead
     @lead = Lead.find(params[:id])
   end
+
+
 end

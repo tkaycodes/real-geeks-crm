@@ -1,5 +1,3 @@
-<%agents =  Agent.order(:name).all.collect {|a| a.name}%>
-
 <table>
   <thead>
     <th width="200">Name</th>
@@ -22,13 +20,11 @@
         <td><%= lead.active_at.to_s(:simple_with_year) %></td>
         <td><%= lead.agent%></td>
         <td><%= lead.agent.role%></td>
-        <td>
-          <select><%agents.each do  |x|%>
-              <option><%=x%></option>
-              <%#=x.submit  %>
-              <%end%>
-                <%=submit_tag "Save", id:"submit", data: { confirm: "Are you sure?", method: :patch }%>
-          </select>
+        <td><%= form_for(lead) do |l| %>
+        <%= l.select :agent_id, options_for_select([['', nil]] + Agent.order(:name).all.collect {|a| [a.name, a.id]}, allow_blank: true, selected: lead.agent_id) %>
+
+            <%end%>
+         
         </td>
       </tr>
     <% end %>
