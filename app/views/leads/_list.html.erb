@@ -18,9 +18,9 @@
         <td><%= lead.active_at.to_s(:simple_with_year) %></td>
         <%if current_agent.role == 'Admin'%>
           <td>
-            <%= form_for(lead) do |l| %>
+            <%= form_for (lead), remote:true do |l| %>
               <%= l.select :agent_id, options_for_select([['', nil]] + Agent.order(:name).all.collect {|a| [a.name, a.id]}, allow_blank: true, selected: lead.agent_id) %>
-            <%= l.submit "Save Changes", class: "btn btn-default", remote: true %>
+            <%= l.submit "Update", class: "btn btn-default"%>
             <%end%>
           </td>
         <%else%>

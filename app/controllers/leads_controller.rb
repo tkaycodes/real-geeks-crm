@@ -13,7 +13,10 @@ class LeadsController < ApplicationController
 
   def update
     if @lead.update_attributes(lead_params)
-      redirect_to lead_path(@lead), notice: "Successfully updated Lead"
+      respond_to do |format|
+        format.html {redirect_to lead_path(@lead), notice: "Successfully updated Lead"}
+        format.js
+      end
     else
       flash[:error] = "Could not save lead: #{@lead.errors.full_messages.join(', ')}"
       render "show"
