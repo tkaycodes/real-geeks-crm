@@ -21,6 +21,7 @@ class LeadsController < ApplicationController
       flash[:error] = "Could not save lead: #{@lead.errors.full_messages.join(', ')}"
       render "show"
     end
+     # @agents=Agent.find(:all)
   end
 
   private
