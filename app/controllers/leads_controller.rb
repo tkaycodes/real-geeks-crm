@@ -6,7 +6,6 @@ class LeadsController < ApplicationController
     else
       @leads = current_agent.leads.order "created_at DESC"
     end
-    @agents =  Agent.order(:name).all.collect {|a| a.name}
   end
 
   def show
