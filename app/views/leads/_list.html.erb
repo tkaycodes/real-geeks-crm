@@ -20,7 +20,7 @@
           <td>
             <%= form_for (lead), remote:true do |l| %>
               <%= l.select :agent_id, options_for_select([['', nil]] + Agent.order(:name).all.collect {|a| [a.name, a.id]}, allow_blank: true, selected: lead.agent_id) %>
-            <%= l.submit "Update", class: "btn btn-default"%>
+            <%= l.submit "Update Agent", class: "btn btn-default"%>
             <%end%>
           </td>
         <%else%>
