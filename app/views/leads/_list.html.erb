@@ -1,3 +1,4 @@
+<%=link_to "Create new lead", new_lead_path%>
 <table>
   <thead>
     <th width="200">Name</th>
@@ -15,7 +16,7 @@
           <strong>Count:</strong> <%= lead.search_count %><br />
           <strong>Most recent:</strong> <%= lead.last_search %>
         </td>
-        <td><%= lead.active_at.to_s(:simple_with_year) %></td>
+        <td><%#= lead.active_at.to_s(:simple_with_year) %></td>
         <%if current_agent.role == 'Admin'%>
           <td>
             <%= form_for (lead), remote:true do |l| %>

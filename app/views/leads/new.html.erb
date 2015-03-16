@@ -1,0 +1,78 @@
+<div class="large-8 large-offset-2 columns">
+  <h1>Lead Details</h1>
+  <%= form_for(@newlead) do |f| %>
+  <fieldset>
+    <legend>Contact Info</legend>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Name
+          <%= f.text_field :name, required: true %>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <label>Email
+          <%= f.email_field :email, required: true %>
+        </label>
+      </div>
+      <div class="large-6 columns">
+        <label>Phone
+          <%= f.phone_field :phone %>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Address
+          <%= f.text_field :address %>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Activity Log
+          <%= f.text_area :activity_log%>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Start Date
+          <%=f.date_field :start_date%>
+
+        </label>
+      </div>
+  </fieldset>
+
+<!-- this if statement will ensure only admin's get access to this section -->
+<%if current_agent.role == "Admin"%>
+  <fieldset> 
+  <legend>Assigned To</legend>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Agent
+          <%#= f.select :agent_id, options_for_select([['', nil]] + Agent.order(:name).all.collect {|a| [a.name, a.id]}, allow_blank: true, selected: @lead.agent_id) %>
+        </label>
+      </div>
+    </div>
+   </fieldset> 
+<%end%>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.submit "Save Changes", class: "button success" %>
+    </div>
+  </div>
+<% end %>
+
+  <h2>Activity History</h2>
+  <div class="row">
+    <div class="large-3 columns">
+      <span class="label">Number of searches</span> <%#= @lead.search_count %>
+    </div>
+    <div class="large-8 columns">
+      <span class="label">Most Recent Search</span> <%#= @lead.last_search %>
+    </div>
+  </div>
+</div>
