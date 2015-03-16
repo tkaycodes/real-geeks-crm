@@ -51,5 +51,9 @@ class LeadsController < ApplicationController
     @lead = Lead.find(params[:id])
   end
 
+  def isadmin?
+    current_agent.role == 'Admin'
+  end
+
 
 end

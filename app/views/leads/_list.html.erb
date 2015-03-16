@@ -1,4 +1,7 @@
+<%if current_agent.role == 'Admin'%>
 <%=link_to "Create new lead", new_lead_path%>
+<%end%> 
+
 <table>
   <thead>
     <th width="200">Name</th>

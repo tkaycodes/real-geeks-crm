@@ -11,7 +11,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%if agent_signed_in?%>
-      <p id="signedin">Real Geeks CRM | <%=current_agent.role%>: <%=current_agent.name%> </p>
+      <p id="signedin">Real Geeks CRM | <strong><%=current_agent.role%>:</strong> <%=current_agent.name%> </p>
     <%end%>
 
   <div id="container"  class="row">
