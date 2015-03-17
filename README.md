@@ -7,8 +7,8 @@ Created a new controller for apis. Subfolder for v1. And three actions, I starte
 
 ```shell
 On the lead detail page (LeadsController#show) restrict the ability for regular agents to change who the lead is assigned to. It should only be allowed to admins
- ```
- I added a simple if statement chekcing to see if the agent role is admin, if it is, then show the next part of the code. I later refactored this into a helper method called agent? inside the agent.rb file.
+```
+I added a simple if statement chekcing to see if the agent role is admin, if it is, then show the next part of the code. I later refactored this into a helper method called agent? inside the agent.rb file.
 
 ```shell
 Allow admin agents to change who the lead is assigned to from the leads list page
@@ -30,9 +30,9 @@ I created a new column inside the lead table, and ran a migration. Then I includ
 ```shell
 Any other changes or improvements you see as helpful to the application/test code. This is a pretty simple and hasty example application. Some things have been left out intentionally, others you may actually see a better way of accomplishing. Is there a better user experience? Can you see a possible refactoring? Are the tests brittle? Think of the entire codebase as malleable.
 ```
--I thought it might be helpful to let the signed in agent know that they are in fact signed in, and their role. So I added a display nav bar that shows the agent thats signed in along with their role.
--Also I put the drop down agent options in the lead index and lead show pages inside a helper method within the leads_helper.rb file
--I also created a link to/routes for "Create New Lead", this is probably redundatnt as leads come from the api, but this was used mostly for testing purposes to make sure that the "round robin" was working
--Users were created using rails coneole. I was going to include a "sign up" button, but I thought it was probably left out for a reason. 
--Set up API routes, for show and index as well (just cause) they can be viewd at /api/controllers/ and api/controllers/:index
+* I thought it might be helpful to let the signed in agent know that they are in fact signed in, and their role. So I added a display nav bar that shows the agent thats signed in along with their role.
+* Also I put the drop down agent options in the lead index and lead show pages inside a helper method within the leads_helper.rb file
+* I also created a link to/routes for "Create New Lead", this is probably redundatnt as leads come from the api, but this was used mostly for testing purposes to make sure that the "round robin" was working
+* Users were created using rails coneole. I was going to include a "sign up" button, but I thought it was probably left out for a reason. 
+* Set up API routes, for show and index as well (just cause) they can be viewd at /api/controllers/ and api/controllers/:index
 
