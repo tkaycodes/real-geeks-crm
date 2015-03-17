@@ -7,6 +7,10 @@
   has_many :leads
   validates_inclusion_of(:role, in: ROLES)
 
+  def admin? 
+    role == 'Admin'
+  end
+
   def to_s
     name
   end

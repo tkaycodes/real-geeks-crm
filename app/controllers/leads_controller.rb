@@ -1,7 +1,7 @@
 class LeadsController < ApplicationController
   before_filter :get_lead, only: [:show, :update]
   def index
-    if  current_agent.role == "Admin"
+    if current_agent.admin?
       @leads = Lead.order "created_at DESC"
     else
       @leads = current_agent.leads.order "created_at DESC"
@@ -32,13 +32,18 @@ class LeadsController < ApplicationController
     @newlead=Lead.new
   end
 
+  #this create leads method is probably not necessary, since i am 
+  #assuming leads are only obtained from the api, and not 
+  #also made manually, but i have it here anyways, mostly
+  #for testing purposes
+
   def create
     @newlead=Lead.new(lead_params)
     if @newlead.save
       redirect_to leads_path, notice: "Lead Created"
-  else
+    else
     redirect_to leads_path, notice: "Something went wrong"
-  end
+    end
   end
 
   private
@@ -51,9 +56,9 @@ class LeadsController < ApplicationController
     @lead = Lead.find(params[:id])
   end
 
-  def isadmin?
-    current_agent.role == 'Admin'
-  end
+  # def isadmin?
+  #   current_agent.role == 'Admin'
+  # end
 
 
 end

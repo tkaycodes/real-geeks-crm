@@ -37,7 +37,7 @@
   </fieldset>
 
 <!-- this if statement will ensure only admin's get access to this section -->
-<%if current_agent.role == "Admin"%>
+<%if current_agent.admin?%>
   <fieldset> 
   <legend>Assigned To</legend>
     <div class="row">
