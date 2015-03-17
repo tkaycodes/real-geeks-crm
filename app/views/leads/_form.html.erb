@@ -43,7 +43,7 @@
     <div class="row">
       <div class="large-12 columns">
         <label>Agent
-          <%= f.select :agent_id, options_for_select([['', nil]] + Agent.order(:name).all.collect {|a| [a.name, a.id]}, allow_blank: true, selected: @lead.agent_id) %>
+          <%= f.select :agent_id, agent_select_options(@lead) %>
         </label>
       </div>
     </div>
